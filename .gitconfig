@@ -1,0 +1,17 @@
+[user]
+	email = prok20@inbox.ru
+	name = Alexander Prokudin
+[credential]
+	helper = store
+[pull]
+	ff = only
+[help]
+	autocorrect = 1
+[github]
+	user = prok20
+[alias]
+	c = commit
+	s = status
+	lg = log --oneline
+	last = log -1 HEAD
+
