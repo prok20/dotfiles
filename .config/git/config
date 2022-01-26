@@ -15,3 +15,6 @@
 	lg = log --oneline
 	last = log -1 HEAD
 
+[includeIf "gitdir/i:work/"]
+	path = ~/.config/git/config-work
+
