@@ -11,7 +11,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 Install Alacritty (terminal emulator):
 brew install --cask alacritty
 
-brew install nvim tmux ripgrep tree
+brew install nvim tmux ripgrep tree python
 
 Alternatives for MacOS Command line utilities:
 brew install ripgrep git
