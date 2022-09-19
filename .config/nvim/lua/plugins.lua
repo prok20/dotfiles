@@ -1,6 +1,9 @@
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  -- Color scheme
+  use 'overcache/NeoSolarized'
+
   -- Collection of common configurations for the NVim LSP Client
   use 'neovim/nvim-lspconfig'
 

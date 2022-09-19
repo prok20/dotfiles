@@ -1,3 +1,5 @@
+set termguicolors
+
 set number
 set relativenumber
 
@@ -31,4 +33,7 @@ set completeopt=menuone,noinsert,noselect
 
 " Avoid showing extra messages when using completion
 set shortmess+=c
+
+set background=light
+colorscheme NeoSolarized
 
