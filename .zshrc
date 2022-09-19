@@ -18,22 +18,28 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(docker colored-man-pages git zsh-autosuggestions fast-syntax-highlighting autoupdate)
+plugins=(docker colored-man-pages git zsh-autosuggestions autoupdate)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
+# Completions section
+[[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath+=(/opt/homebrew/share/zsh/site-functions)
+fpath+=(~/.oh-my-zsh/completions)
+
 source $ZSH/oh-my-zsh.sh
 
-
 # Exports section
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
-
 export EDITOR='nvim'
 
 # Alias section
 alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+source ~/.config/zshrc_imports/aliases.sh
+
+# Custom local additions
+source ~/.config/zshrc_imports/local.sh
 
 # Footer section
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
 
