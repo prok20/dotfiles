@@ -1,5 +1,5 @@
 [user]
-	email = prok20@inbox.ru
+	email = prok20@gmail.com
 	name = Alexander Prokudin
 [credential]
 	helper = store
@@ -18,3 +18,10 @@
 [includeIf "gitdir/i:work/"]
 	path = ~/.config/git/config-work
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
