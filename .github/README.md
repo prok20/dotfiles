@@ -16,7 +16,7 @@ Install Alacritty (terminal emulator):
 `brew install nvim tmux ripgrep tree python`
 
 Alternatives for MacOS Command line utilities:
-`brew install ripgrep git`
+`brew install git`
 
 Install oh-my-zsh:
 `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
