@@ -1,13 +1,14 @@
 `git clone --bare https://github.com/prok20/dotfiles.git $HOME/.cfg`
 
 How to install:
-https://www.atlassian.com/git/tutorials/dotfiles
+[https://www.atlassian.com/git/tutorials/dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 Install brew:
 https://brew.sh/
 
 Install JetBrainsMono Nerd Font:
 `brew tap homebrew/cask-fonts` (deprecated, fonts moved to just homebrew/cask)
+
 `brew install --cask font-jetbrains-mono-nerd-font`
 
 Install Alacritty (terminal emulator):
