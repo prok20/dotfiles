@@ -6,9 +6,6 @@ How to install:
 Install brew:
 https://brew.sh/
 
-Install JetBrainsMono Nerd Font:
-`brew tap homebrew/cask-fonts` (deprecated, fonts moved to just homebrew/cask)
-
 `brew install --cask font-jetbrains-mono-nerd-font`
 
 Install Alacritty (terminal emulator):
