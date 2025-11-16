@@ -13,12 +13,7 @@ set relativenumber
 " Avoid showing extra messages when using completion
 " set shortmess+=c
 
-"lua require'lspconfig'.rust_analyzer.setup({})
-
 lua require'plugins'
-
-lua require'lsp_setup'
-lua require'completion_setup'
 
 " Have a fixed column for the diagnostics to appear in
 " this removes the jitter when warnings/errors flow in
@@ -35,5 +30,4 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 set background=light
-colorscheme NeoSolarized
 

@@ -22,11 +22,11 @@ plugins=(docker colored-man-pages git zsh-autosuggestions autoupdate)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
+source $ZSH/oh-my-zsh.sh
+
 # Completions section
 [[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath+=(/opt/homebrew/share/zsh/site-functions)
-fpath+=(~/.oh-my-zsh/completions)
-
-source $ZSH/oh-my-zsh.sh
+command -v kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
 
 # Exports section
 export EDITOR='nvim'
