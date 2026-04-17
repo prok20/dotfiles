@@ -1,8 +1,14 @@
 [user]
 	email = prok20@gmail.com
 	name = Alexander Prokudin
-[credential]
-	helper = store
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILgdpDNSYtp2vzBlDDmb9GDsEJY5HJKx/R96AQ7eLLot
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
+
 [pull]
 	ff = only
 [help]

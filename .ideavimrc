@@ -41,5 +41,7 @@ let mapleader=" "
 map <leader>r <Action>(RunClass)
 map <leader>l <Action>(ReformatCode)
 map <leader>c <Action>(CloseAllEditorsButActive)
+map <leader>w <Action>(CopyPathFromRepositoryRootProvider)
+"" CopyContentRootPath
 
 " Find more examples here: https://jb.gg/share-ideavimrc
