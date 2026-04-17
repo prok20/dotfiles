@@ -1,0 +1,8 @@
+theme = iTerm2 Solarized Light
+font-family = "JetBrainsMono Nerd Font"
+
+font-thicken = true
+
+notify-on-command-finish = unfocused
+macos-titlebar-style = tabs
+
