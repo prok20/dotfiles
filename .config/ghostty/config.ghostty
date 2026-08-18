@@ -4,5 +4,8 @@ font-family = "JetBrainsMono Nerd Font"
 font-thicken = true
 
 notify-on-command-finish = unfocused
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 
+# Avoid Cmd+Left emitting Ctrl-A, which is the tmux prefix.
+keybind = super+left=csi:H
+keybind = super+right=csi:F

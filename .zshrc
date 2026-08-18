@@ -46,3 +46,4 @@ source ~/.config/zshrc_imports/local.sh
 
 [[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
 
+export UV_KEYRING_PROVIDER=subprocess
