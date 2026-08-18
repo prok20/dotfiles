@@ -1,7 +1,0 @@
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c 
-    - "source ~/.zshrc; tmux attach || tmux"
-
