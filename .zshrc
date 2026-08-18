@@ -5,17 +5,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export HOMEBREW_PREFIX="/opt/homebrew"
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
-export HOMEBREW_REPOSITORY="/opt/homebrew"
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+elif (( $+commands[brew] )); then
+  eval "$(brew shellenv)"
+fi
 
 export PATH=$HOME/.local/bin:$PATH
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
 export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:${PATH}"
 
-export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+if [[ -n ${HOMEBREW_PREFIX:-} ]]; then
+  export PKG_CONFIG_PATH="${HOMEBREW_PREFIX}/opt/mysql-client/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"
+  [[ -d "${HOMEBREW_PREFIX}/share/zsh/site-functions" ]] && fpath=("${HOMEBREW_PREFIX}/share/zsh/site-functions" $fpath)
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -25,25 +29,24 @@ plugins=(docker colored-man-pages git zsh-autosuggestions autoupdate)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # Completions section
-[[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath+=(/opt/homebrew/share/zsh/site-functions)
-command -v kubectl >/dev/null 2>&1 && source <(kubectl completion zsh)
+if (( $+commands[kubectl] )); then
+  source <(kubectl completion zsh)
+fi
 
 # Exports section
 export EDITOR='nvim'
 
 # Alias section
 alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
-source ~/.config/zshrc_imports/aliases.sh
+[[ -r "$HOME/.config/zshrc_imports/aliases.sh" ]] && source "$HOME/.config/zshrc_imports/aliases.sh"
 
 # Custom local additions
-source ~/.config/zshrc_imports/local.sh
+[[ -r "$HOME/.config/zshrc_imports/local.sh" ]] && source "$HOME/.config/zshrc_imports/local.sh"
 
 # Footer section
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
 
 export UV_KEYRING_PROVIDER=subprocess
