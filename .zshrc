@@ -15,6 +15,7 @@ fi
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:${PATH}"
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 if [[ -n ${HOMEBREW_PREFIX:-} ]]; then
   export PKG_CONFIG_PATH="${HOMEBREW_PREFIX}/opt/mysql-client/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}"

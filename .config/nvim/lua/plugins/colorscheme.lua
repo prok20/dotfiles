@@ -1,0 +1,19 @@
+return {
+  {
+    "maxmx03/solarized.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = function()
+        vim.o.background = "light"
+        require("solarized").setup({})
+        vim.cmd.colorscheme("solarized")
+      end,
+    },
+  },
+}
